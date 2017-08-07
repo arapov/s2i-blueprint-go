@@ -34,7 +34,7 @@ jay env make
 echo "---> Generating dynamic content..."
 npm install
 npm install gulp
-gulp
+gulp init
 
 echo
 echo "===> Build completed at $(date)"
