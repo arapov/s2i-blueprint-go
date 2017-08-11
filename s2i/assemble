@@ -31,9 +31,11 @@ go install main
 echo "---> Generating configuration from template..."
 jay env make
 
-echo "---> Generating dynamic content..."
+echo "---> Installing dependencies ..."
 npm install
+echo "---> Installing Gulp ..."
 npm install gulp
+echo "---> Gulp init ..."
 gulp init
 
 echo
