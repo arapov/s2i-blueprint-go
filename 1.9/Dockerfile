@@ -7,9 +7,9 @@ MAINTAINER Anton Arapov <arapov@gmail.com>
 EXPOSE 8080
 
 ENV GO_MINOR_VERSION=9 \
-    GO_PATCH_VERSION=0
+    GO_PATCH_VERSION=1
 
-ENV GO_VERSION=1.${GO_MINOR_VERSION} \
+ENV GO_VERSION=1.${GO_MINOR_VERSION}.${GO_PATCH_VERSION} \
     GOPATH=$HOME/go \
     GOBIN=$HOME/go/bin \
     SOURCE=$HOME/go/src/main \
@@ -23,10 +23,8 @@ LABEL io.k8s.description="Platform for building and running Go applications" \
 
 # Install Go toolchain
 RUN yum install -y centos-release-scl epel-release && \
-	yum update -y && \
-    INSTALL_PKGS="git npm http-parser" && \
+    INSTALL_PKGS="openssl git npm http-parser" && \
     yum install -y --setopt=tsflags=nodocs --enablerepo=centosplus $INSTALL_PKGS && \
-    rpm -V $INSTALL_PKGS && \
     yum clean all -y && \
     (curl -L https://storage.googleapis.com/golang/go${GO_VERSION}.linux-amd64.tar.gz | \
         tar -xz -C /usr/local)
