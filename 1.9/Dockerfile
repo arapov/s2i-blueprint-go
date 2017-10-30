@@ -14,7 +14,7 @@ ENV GO_VERSION=1.${GO_MINOR_VERSION}.${GO_PATCH_VERSION} \
     GOBIN=$HOME/go/bin \
     SOURCE=$HOME/go/src/main \
 	JAYCONFIG=$HOME/go/src/main/env.json \
-    PATH=$PATH:$HOME/go/bin:/usr/local/go/bin:$HOME/go/src/main/node_modules/.bin/
+    PATH=$PATH:$HOME/go/bin:/usr/local/go/bin
 
 LABEL io.k8s.description="Platform for building and running Go applications" \
       io.k8s.display-name="Go ${GO_VERSION}" \
